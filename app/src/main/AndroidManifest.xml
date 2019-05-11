@@ -75,7 +75,8 @@
             android:name="Bmob_APP_KEY"
             android:value="3b3a8173f7d02cc1222afb432eee0868" />
 
-        <activity android:name=".ChatMainActivity"></activity>
+        <activity android:name=".ChatMainActivity" />
+        <activity android:name=".business.NewBlogActivity"></activity>
     </application>
 
 </manifest>
