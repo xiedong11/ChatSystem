@@ -13,6 +13,24 @@ import cn.bmob.v3.BmobUser;
 public class User extends BmobUser {
 
     private String avatar;
+    private String nickName;
+    private String userInfo;
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(String userInfo) {
+        this.userInfo = userInfo;
+    }
 
     public User(){}
 
