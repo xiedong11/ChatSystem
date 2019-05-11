@@ -46,4 +46,12 @@ dependencies {
     //汉字转拼音
     implementation 'com.github.promeg:tinypinyin:1.0.0'
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+    //IM相关
+    implementation 'com.orhanobut:logger:1.4'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'cn.bmob.android:bmob-im:2.1.1@aar'
+
+    //汉字转拼音
+    implementation 'com.github.promeg:tinypinyin:1.0.0'
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
 }
