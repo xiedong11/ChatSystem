@@ -1,6 +1,7 @@
 package com.zhuandian.chatsystem.adapter;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.TextView;
 
 import com.zhuandian.base.BaseAdapter;
@@ -27,22 +28,40 @@ public class BlogAdapter extends BaseAdapter<BlogEntity, BaseViewHolder> {
     TextView tvName;
     @BindView(R.id.tv_time)
     TextView tvTime;
+    private OnItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
 
     public BlogAdapter(List<BlogEntity> mDatas, Context context) {
         super(mDatas, context);
     }
 
     @Override
-    protected void converData(BaseViewHolder myViewHolder, BlogEntity blogEntity, int position) {
+    protected void converData(BaseViewHolder myViewHolder, final BlogEntity blogEntity, int position) {
         ButterKnife.bind(this, myViewHolder.itemView);
         tvName.setText("作者：" + blogEntity.getAuthor().getUsername());
         tvTime.setText(blogEntity.getCreatedAt());
         tvTitle.setText(blogEntity.getBlogTitle());
         tvContent.setText(blogEntity.getBlogContent());
+        myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onItemClickListener != null) {
+                    onItemClickListener.onClick(blogEntity);
+                }
+            }
+        });
     }
 
     @Override
     public int getItemLayoutId() {
         return R.layout.item_blog;
     }
+
+    public interface OnItemClickListener {
+        void onClick(BlogEntity blogEntity);
+    }
 }
+

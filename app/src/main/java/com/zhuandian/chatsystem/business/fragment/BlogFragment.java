@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.zhuandian.base.BaseFragment;
 import com.zhuandian.chatsystem.R;
 import com.zhuandian.chatsystem.adapter.BlogAdapter;
+import com.zhuandian.chatsystem.business.BlogDetailActivity;
 import com.zhuandian.chatsystem.business.NewBlogActivity;
 import com.zhuandian.chatsystem.entity.BlogEntity;
 
@@ -53,8 +54,18 @@ public class BlogFragment extends BaseFragment {
                 .findObjects(new FindListener<BlogEntity>() {
                     @Override
                     public void done(List<BlogEntity> list, BmobException e) {
-                        rvList.setAdapter(new BlogAdapter(list, actitity));
+                        BlogAdapter adapter = new BlogAdapter(list, actitity);
+                        rvList.setAdapter(adapter);
                         rvList.setLayoutManager(new LinearLayoutManager(actitity));
+                        adapter.setOnItemClickListener(new BlogAdapter.OnItemClickListener() {
+                            @Override
+                            public void onClick(BlogEntity blogEntity) {
+                                //跳转到详情页
+                                Intent intent = new Intent(actitity, BlogDetailActivity.class);
+                                intent.putExtra("item", blogEntity);
+                                startActivity(intent);
+                            }
+                        });
                     }
                 });
 
