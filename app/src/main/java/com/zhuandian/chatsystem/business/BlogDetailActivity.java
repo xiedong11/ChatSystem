@@ -38,6 +38,7 @@ import cn.bmob.v3.datatype.BmobPointer;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 public class BlogDetailActivity extends BaseActivity implements View.OnTouchListener {
     @BindView(R.id.tv_title)
@@ -106,7 +107,7 @@ public class BlogDetailActivity extends BaseActivity implements View.OnTouchList
         query.include("author,BlogEntity.auther");
         query.findObjects(new FindListener<BlogComment>() {
             @Override
-            public void done(List<BlogComment> objects, BmobException e) {
+            public void done(List<BlogComment> objects, final BmobException e) {
                 if (e == null) {
                     //插入数据，通知列表更新
 //                    commentDatas = objects;  直接赋值，因为前后绑定的apapter对应的list地址不是同一个，所以 notifyDataSetChanged无效，
@@ -116,6 +117,25 @@ public class BlogDetailActivity extends BaseActivity implements View.OnTouchList
                     userCommentAdapter = new UserCommentAdapter(BlogDetailActivity.this, commentDatas);
                     commentRecyclewView.setAdapter(userCommentAdapter);
                     userCommentAdapter.notifyDataSetChanged();
+                    userCommentAdapter.setOnItemLongClickListener(new UserCommentAdapter.OnItemLongClickListener() {
+                        @Override
+                        public void onLongClick(BlogComment blogComment) {
+                            if (mDatas.getAuthor().getObjectId().equals(BmobUser.getCurrentUser(User.class).getObjectId())) {
+                                blogComment.delete(new UpdateListener() {
+                                    @Override
+                                    public void done(BmobException e) {
+                                        if (e == null) {
+                                            Toast.makeText(BlogDetailActivity.this, "删除评论成功...", Toast.LENGTH_SHORT).show();
+                                            getAllUserComment();
+                                        }
+                                    }
+                                });
+
+                            } else {
+                                Toast.makeText(BlogDetailActivity.this, "只有发布者才能删除评论...", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
                 } else {
                     Log.e("查询数据失败", "xiedongdong");
                 }
