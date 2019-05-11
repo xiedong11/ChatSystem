@@ -9,7 +9,8 @@
     <!--IM导航提供了检索用户功能，暂时用不到该功能，先gone-->
     <include
         android:id="@+id/ll"
-        layout="@layout/include_navi" />
+        layout="@layout/include_navi"
+        android:visibility="gone" />
 
     <FrameLayout
         android:layout_width="match_parent"
