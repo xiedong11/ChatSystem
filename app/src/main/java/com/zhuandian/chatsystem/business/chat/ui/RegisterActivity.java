@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.zhuandian.chatsystem.ChatMainActivity;
 import com.zhuandian.chatsystem.R;
 import com.zhuandian.chatsystem.business.chat.base.ParentWithNaviActivity;
 import com.zhuandian.chatsystem.business.chat.event.FinishEvent;
@@ -61,7 +62,7 @@ public class RegisterActivity extends ParentWithNaviActivity {
             public void done(Object o, BmobException e) {
                 if (e == null) {
                     EventBus.getDefault().post(new FinishEvent());
-                    startActivity(MainActivity.class, null, true);
+                    startActivity(ChatMainActivity.class, null, true);
                 } else {
                     if (e.getErrorCode() == BaseModel.CODE_NOT_EQUAL) {
                         et_password_again.setText("");

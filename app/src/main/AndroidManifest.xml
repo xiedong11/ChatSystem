@@ -77,7 +77,8 @@
 
         <activity android:name=".ChatMainActivity" />
         <activity android:name=".business.NewBlogActivity" />
-        <activity android:name=".business.BlogDetailActivity"></activity>
+        <activity android:name=".business.BlogDetailActivity" />
+        <activity android:name=".business.PersonalDataActivity"></activity>
     </application>
 
 </manifest>

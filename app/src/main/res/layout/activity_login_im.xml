@@ -2,28 +2,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/login_bg" >
+    android:background="@mipmap/login_bg">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/iv_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
-            android:visibility="gone"
-            android:src="@mipmap/login_logo" />
+            android:src="@mipmap/login_logo"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/input_bg"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/et_username"
@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_title"
             android:layout_margin="@dimen/activity_vertical_margin"
-            android:background="@drawable/btn_login_selector"
+            android:background="@color/colorPrimary"
             android:gravity="center"
             android:text="@string/login"
             android:textColor="@color/base_color_text_white"
@@ -75,7 +75,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
             android:layout_marginLeft="5dp"
             android:gravity="center_vertical"
             android:text="@string/register_txt2"
-            android:textColor="@color/color_theme"
+            android:textColor="@color/colorPrimary"
             android:textSize="20sp" />
     </LinearLayout>
 

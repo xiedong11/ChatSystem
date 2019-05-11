@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.zhuandian.chatsystem.ChatMainActivity;
 import com.zhuandian.chatsystem.R;
 import com.zhuandian.chatsystem.business.chat.base.BaseActivity;
 import com.zhuandian.chatsystem.business.chat.model.UserModel;
@@ -53,7 +54,7 @@ public class LoginActivity extends BaseActivity {
             public void done(Object o, BmobException e) {
                 if (e == null) {
                     //登录成功
-                    startActivity(MainActivity.class, null, true);
+                    startActivity(ChatMainActivity.class, null, true);
                 } else {
                     toast(e.getMessage() + "(" + e.getErrorCode() + ")");
                 }

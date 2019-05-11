@@ -1,54 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".business.studentActivity.UserInfoActivity">
+    android:background="@color/base_bg"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tv_personal_data"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:text="设置或修改个人信息"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/et_nick_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="请设置您的昵称"
-        android:textSize="15sp" />
-
-    <EditText
-        android:id="@+id/et_user_desc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="一句话简短介绍一下自己"
-        android:textSize="15sp" />
-    <EditText
-        android:id="@+id/et_user_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="修改密码"
-        android:textSize="15sp" />
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/white"
+        android:gravity="left|center"
+        android:paddingLeft="20dp"
+        android:text="修改个人信息" />
 
     <TextView
-        android:id="@+id/tv_submit"
+        android:id="@+id/tv_logout"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="50dp"
         android:background="@color/colorPrimary"
         android:gravity="center"
-        android:text="提交"
+        android:text="退出登录"
         android:textColor="#fff" />
-</LinearLayout>
+</RelativeLayout>
