@@ -10,6 +10,10 @@
         android:id="@+id/tab_blog"
         android:icon="@drawable/ic_view"
         android:title="博客" />
+    <item
+        android:id="@+id/tab_chat"
+        android:icon="@drawable/ic_hotel"
+        android:title="消息" />
 
     <item
         android:id="@+id/tab_my"

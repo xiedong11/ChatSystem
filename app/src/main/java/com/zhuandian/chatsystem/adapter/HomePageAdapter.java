@@ -14,9 +14,9 @@ import java.util.List;
  * date：2019/5/11
  */
 public class HomePageAdapter extends FragmentPagerAdapter {
-    List<BaseFragment> fragments;
+    List<Fragment> fragments;
 
-    public HomePageAdapter(FragmentManager fm, List<BaseFragment> fragments) {
+    public HomePageAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
         this.fragments = fragments;
     }

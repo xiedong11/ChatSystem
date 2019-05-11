@@ -4,12 +4,15 @@ package com.zhuandian.chatsystem;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
 
 import com.zhuandian.base.BaseActivity;
 import com.zhuandian.base.BaseFragment;
 import com.zhuandian.chatsystem.adapter.HomePageAdapter;
+import com.zhuandian.chatsystem.business.chat.ui.fragment.ContactFragment;
+import com.zhuandian.chatsystem.business.chat.ui.fragment.ConversationFragment;
 import com.zhuandian.chatsystem.business.fragment.BlogFragment;
 import com.zhuandian.chatsystem.business.fragment.HomeFragment;
 import com.zhuandian.chatsystem.business.fragment.MyFragment;
@@ -32,7 +35,8 @@ public class ChatMainActivity extends BaseActivity {
     BottomNavigationView tabBottom;
     private static final int PAGE_HOME = 0;
     private static final int PAGE_BLOG = 1;
-    private static final int PAGE_MY = 2;
+    private static final int PAGE_CHAT = 2;
+    private static final int PAGE_MY = 3;
 
 
     @Override
@@ -42,9 +46,10 @@ public class ChatMainActivity extends BaseActivity {
 
     @Override
     protected void setUpView() {
-        List<BaseFragment> fragmentList = new ArrayList<>();
+        List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(new HomeFragment());
         fragmentList.add(new BlogFragment());
+        fragmentList.add(new ConversationFragment());
         fragmentList.add(new MyFragment());
 
         vpHome.setAdapter(new HomePageAdapter(getSupportFragmentManager(), fragmentList));
@@ -71,6 +76,9 @@ public class ChatMainActivity extends BaseActivity {
                         break;
                     case R.id.tab_blog:
                         vpHome.setCurrentItem(PAGE_BLOG);
+                        break;
+                    case R.id.tab_chat:
+                        vpHome.setCurrentItem(PAGE_CHAT);
                         break;
                     case R.id.tab_my:
                         vpHome.setCurrentItem(PAGE_MY);
